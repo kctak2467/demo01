@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+
+<div class="content-wrapper">
+
+    <!-- ##コンテンツヘッダー Content Header (Page header) -->
+    {% include './kiki_content_header.html' %}
+
+    <!-- コンテンツ(流動的コンテナ) -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- row(機器台帳（詳細）） -->
+            <div class="row">
+                <!-- col(左側) -->
+                <div class="col-md-6">
+                    <div class="card card-warning">
+                        <!-- card-header -->
+                        <div class="card-header">
+                            <h3 class="card-title">機器台帳（変更）</h3>
+                        </div>
+
+                        <!-- card-body -->
+                        <div class="card-body">
+                            <form method="post" novalidate>
+                                {% csrf_token %}
+                                <table class="col-6">
+                                    {{ form.as_table }}
+                                </table>
+
+                                <button type=“submit” class="btn btn-warning" id="button" name="button">
+                                    <i class="fas fa-save"></i>　更新
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="card-footer">
+                            <button type=“button” class="btn btn-secondary"
+                                    onclick="location.href='/kiki/'"><i class="fas fa-list"></i>　戻る</button>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+{% endblock content %}

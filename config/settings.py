@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'hzyhyoka.apps.KikimstConfig',    #追加
+    'bootstrap4',    #追加
+    'widget_tweaks',    #追加
+    'books.apps.BooksConfig',       #追加(books)
+    'kiki.apps.KikiConfig',         #追加(kiki)
 ]
 
 MIDDLEWARE = [
@@ -54,7 +59,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],    #変更
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -103,9 +108,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'ja'
+LANGUAGE_CODE = 'ja'    #変更
 
-TIME_ZONE = 'Asia/Tokyo'
+TIME_ZONE = 'Asia/Tokyo'    #変更
 
 USE_I18N = True
 
@@ -118,3 +123,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (                        ##追加(books)
+    os.path.join(BASE_DIR, 'static'),
+)
+
+LOGIN_URL = '/login'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/login'

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+
+<div class="content-wrapper">
+
+    <!-- ##コンテンツヘッダー Content Header (Page header) -->
+    {% include './kiki_content_header.html' %}
+
+    <!-- コンテンツ(流動的コンテナ) -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- row(機器台帳（詳細）） -->
+            <div class="row">
+                <!-- col(左側) -->
+                <div class="col-md-6">
+                    <div class="card card-info">
+                        <!-- card-header -->
+                        <div class="card-header">
+                            <h3 class="card-title">機器台帳（登録）</h3>
+                        </div>
+
+                        <!-- card-body -->
+                        <div class="card-body">
+                            <form method="post" novalidate>
+                                {% csrf_token %}
+                                <table class="col-6">
+                                    {{ form.as_table }}
+                                </table>
+
+<!--                                <div class="col">-->
+<!--                                    <label class="col-md-3">{{ form.kiki_id.label }}</label>{{ form.kiki_id }}{{ form.kiki_id.erros }}</div>-->
+<!--                                <div class="col">-->
+<!--                                    <label class="col-md-3">{{ form.kiki_name.label }}</label>{{ form.kiki_name }}</div>-->
+<!--                                <div class="col">-->
+<!--                                    <label class="col-md-3">{{ form.keito.label }}</label>{{ form.keito }}</div>-->
+<!--                                <div class="col">-->
+<!--                                    <label class="col-md-3">{{ form.settibasho.label }}</label>{{ form.settibasho }}</div>-->
+<!--                                <div class="col">-->
+<!--                                    <label class="col-md-3">{{ form.juyodo.label }}</label>{{ form.juyodo }}</div>-->
+<!--                                <div class="col">-->
+<!--                                    <label class="col-md-3">{{ form.nensu.label }}</label>{{ form.nensu }}</div>-->
+<!--                                <p></p>-->
+                                <button type=“submit” class="btn btn-info" id="button" name="button">
+                                    <i class="fas fa-save"></i>　登録
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="card-footer">
+                            <button type=“button” class="btn btn-secondary"
+                                    onclick="location.href='/kiki/'"><i class="fas fa-list"></i>　戻る</button>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+{% endblock content %}

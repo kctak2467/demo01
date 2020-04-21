@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{% block content %}
+<form method="POST" action="{% url 'edit_book' book.book_id %}">
+  {% csrf_token %}
+  <input type="hidden" name="mode" value="{{ mode }}">
+  <table>
+    <tr>
+      <th>Book ID</th>
+      <td><input type="text" name="book_id" readonly value="{{ book.book_id }}"></td>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <td><input type="text" name="title"
+          {% if mode != 'input' %}readonly{% endif %} value="{{ book.title }}"></td>
+    </tr>
+    <tr>
+      <th>Author</th>
+      <td><input type="text" name="author"
+          {% if mode != 'input' %}readonly{% endif %} value="{{ book.author }}"></td>
+    </tr>
+  </table>
+  <div class="basic-block">
+    {% if mode == 'input' %}
+      <button type="button" onclick="location.href='{% url 'list_books' %}'">Return</button>
+      <button type="submit">OK</button>
+    {% elif mode == 'confirm' %}
+      <button type="button" onclick="history.back()">Back</button>
+      <button type="submit">OK</button>
+    {% elif mode == 'result' %}
+      <button type="button" onclick="location.href='{% url 'list_books' %}'">Return</button>
+    {% endif %}
+  </div>
+</form>
+{% endblock %}

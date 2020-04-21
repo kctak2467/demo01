@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Content Wrapper. Contains page content -->
+
+  <div class="content-wrapper">
+
+    <!-- ##コンテンツヘッダー Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <!-- ##コンテンツヘッダー（左側） -->
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">保全有効性評価</h1>
+          </div><!-- /.col -->
+          <!-- ##コンテンツヘッダー（右側） -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active">保全の有効性評価</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- ##メインコンテンツ Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+        <!-- ##情報ボックスエリア Small boxes (Stat box) -->
+        <div class="row">
+
+          <!-- ##No.1（機器台帳） small box -->
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>機器台帳</h3>
+
+                <p>機器台帳の管理を行います</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-cube"></i>
+              </div>
+              <a href="/kiki" class="small-box-footer">一覧画面の表示 <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div> <!-- ./col -->
+
+          <!-- ##No.2（点検状況報告） small box -->
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>点検状況報告</sup></h3>
+
+                <p>点検状況報告の管理を行います</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-clipboard"></i>
+              </div>
+              <a href="#" class="small-box-footer">一覧画面の表示 <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div> <!-- ./col -->
+
+          <!-- ##No.3（特記・気付き） small box -->
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>特記・気付き事項</h3>
+
+                <p>特記・気付き事項の管理を行います。</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-android-bulb"></i>
+              </div>
+              <a href="#" class="small-box-footer">一覧画面の表示 <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div> <!-- ./col -->
+
+          <!-- ##No.4（保全の有効性評価） small box -->
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>保全の有効性評価</h3>
+
+                <p>保全の有効性評価を行います</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-ios-compose"></i>
+              </div>
+              <a href="#" class="small-box-footer">一覧画面の表示 <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <!-- /.row -->
+
+        <!-- ##以降削除（Main row） ========================== -->
+
+        <!-- ##ダッシュボードエリア Main row -->
+          <!-- ##左側 Left col -->
+
+          <!-- ##右側 right col (We are only adding the ID to make the widgets sortable)-->
+
+            <!-- ##地図（Visitors）Map card -->
+
+            <!-- ##グラフ（Visitors） solid sales graph -->
+
+            <!-- ##カレンダ（Calendar）Calendar -->
+
+        <!-- ##以降削除（Main row） ここまで==================== -->
+
+
+      </div><!-- /.container-fluid -->
+
+    </section>
+    <!-- /.content -->
+
+  </div>
+<!-- /.content-wrapper -->
+
+{% endblock content %}

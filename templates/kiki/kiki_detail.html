@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+
+<div class="content-wrapper">
+
+    <!-- ##コンテンツヘッダー Content Header (Page header) -->
+    {% include './kiki_content_header.html' %}
+
+    <!-- コンテンツ(流動的コンテナ) -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- row(機器台帳（詳細）） -->
+            <div class="row">
+                <!-- col(左側) -->
+                <div class="col-md-6">
+                    <div class="card card-secondary">
+                        <!-- card-header -->
+                        <div class="card-header">
+                            <h3 class="card-title">機器台帳（詳細）</h3>
+                        </div>
+                        <!-- card-body -->
+                        <div class="card-body">
+                            <ul class="list-group list-group-unbordered mb-3">
+                              <li class="list-group-item">
+                                  <label class="col-md-3">機器ID</label>{{ kiki.kiki_id }}</li>
+                              <li class="list-group-item">
+                                  <label class="col-md-3">機器番号</label>{{ kiki.kiki_name }}</li>
+                              <li class="list-group-item">
+                                  <label class="col-md-3">系統</label>{{ kiki.keito }}</li>
+                              <li class="list-group-item">
+                                  <label class="col-md-3">設置場所</label>{{ kiki.settibasho }}</li>
+                              <li class="list-group-item">
+                                  <label class="col-md-3">重要度</label>{{ kiki.juyodo }}</li>
+                              <li class="list-group-item">
+                                  <label class="col-md-3">耐用年数</label>{{ kiki.nensu }}</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <button type=“button” class="btn btn-secondary"
+                                onclick="location.href='/kiki/'"><i class="fas fa-list"></i>　戻る</button>
+<!--                                onclick="history.back()"><i class="fas fa-list"></i>　戻る</button>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock content %}

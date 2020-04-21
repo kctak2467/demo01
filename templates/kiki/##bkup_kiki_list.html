@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>ListViewサンプル</title>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <th>kiki_id</th>
+            <th>kiki_name</th>
+            <th>keito</th>
+            <th>settibasho</th>
+            <th>juyodo</th>
+            <th>詳細</th>
+            <th>編集</th>
+            <th>削除</th>
+        </tr>
+        {% for kiki in object_list %}
+        <tr>
+            <td>{{ kiki.kiki_id }}</td>
+            <td>{{ kiki.kiki_name }}</td>
+            <td>{{ kiki.keito }}</td>
+            <td>{{ kiki.settibasho }}</td>
+            <td>{{ kiki.juyodo }}</td>
+            <th><a href="{% url 'detail' kiki.pk %}">詳細</a></th>
+            <th><a href="{% url 'update' kiki.pk %}">編集</a></th>
+            <th><a href="{% url 'delete' kiki.pk %}">削除</a></th>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

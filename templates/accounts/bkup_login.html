@@ -1,0 +1,82 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>発電所管理システム</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="{% static 'AdminLTE-3.0.4/bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'AdminLTE-3.0.4/bower_components/font-awesome/css/font-awesome.min.css' %}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="{% static 'AdminLTE-3.0.4/bower_components/Ionicons/css/ionicons.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'AdminLTE-3.0.4/dist/css/AdminLTE.min.css' %}">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="{% static 'AdminLTE-3.0.4/plugins/iCheck/square/blue.css' %}">
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition login-page">
+  <div class="login-box">
+    <div class="login-logo">
+      <b>発電所管理システム</b>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+      <p class="login-box-msg"><b>ログオン画面</b></p>
+
+      <form action="" method="POST">
+
+        <!-- CSRF対策 {% csrf_token %} -->
+        {% csrf_token %}
+        <!-- CSRFとは・・・
+         CSRF「クロスサイト・リクエスト・フォージェリ」とは、WEBブラウザに保存されているCookie等の値が
+         自動的にリクエストヘッダにセットされて送信されるという性質を利用して、副作用を伴う重要なリクエストを
+         利用者の意図に反して強要する攻撃のことです。-->
+
+        <!-- 以下のループでフォームオブジェクト（form)からフォーム定義情報を1つずつ取り出してフォームの
+        フィールド情報を{{field}}として表示させてあげます。（ユーザー名、パスワード） -->
+        {% for field in form %}
+          <div class="form-group has-feedback">
+            {{ field }}
+          </div>
+        {% endfor %}
+
+        <div class="row">
+
+          <!-- 以下の部分でユーザ認証が失敗した場合にエラーメッセージを表示します。
+          認証系のエラーはform.non_field_errorsに情報が格納されるため、for文でform.non_field_errorsから
+          情報を取得して{{error}}としてテンプレートに表示させてあげます。-->
+          {% for error in form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+              <p>{{ error }}</p>
+            </div>
+          {% endfor %}
+          <!-- /.col -->
+
+          <!-- ログインボタンを定義 -->
+          <div class="col-xs-4">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">ログオン</button>
+          </div>
+          <!-- /.col -->
+
+        </div>
+      </form>
+    </div>
+    <!-- /.login-box-body -->
+  </div>
+  <!-- /.login-box -->
+
+  <!-- jQuery 3 -->
+  <script src="{% static 'AdminLTE-3.0.4/bower_components/jquery/dist/jquery.min.js' %}"></script>
+  <!-- Bootstrap 3.3.7 -->
+  <script src="{% static 'AdminLTE-3.0.4/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+  <!-- iCheck -->
+  <script src="{% static 'AdminLTE-3.0.4/plugins/iCheck/icheck.min.js' %}"></script>
+</body>
+</html>
