@@ -1,0 +1,78 @@
+{% load staticfiles %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>
+      {% block title %}{% endblock %}
+    </title>
+    <style>
+        body {
+          padding : 3px;
+        }
+        div.container {
+          min-width:600px;
+        }
+        nav.header ul#menu {
+            margin:0px;
+            padding:0px;
+        }
+        nav.header ul#menu li {
+            float:right;
+            list-style-type:none;
+            text-decoration: underline;
+            padding-left: 10px;
+        }
+        div.header {
+          padding: 3px;margin-bottom: 5px;
+        }
+        div.header * {
+          color: white !important;
+        }
+        div.header .title {
+          font-size: 1.2em;
+        }
+        {% block styles %}{% endblock %}
+    </style>
+</head>
+<body>
+<div class="container">
+  <div class="inner">
+    <div class="text-right">{{ form_name }}</div>
+    <div class="row bg-warning">
+      <div class="col-sm title">
+        {% block headertitle %}{% endblock %}
+      </div>
+      <div class="col-sm">
+        <nav class="pull-right header">
+            <ul id="menu">
+              <li><a href="" onclick="javascript:history.go(-1); return false;">戻る</a></li>
+              {% if user.is_authenticated %}
+                <li><a href="#" class="logout">ログアウト</a></li>
+                {% if form_name == "password_change" %}
+                {% else %}
+                    <li><a href="#" class="">パスワード変更</a></li>
+                {% endif %}
+              {% else %}
+              {% endif %}
+              <li><a href="#" class="">ＴＯＰ</a></li>
+            </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="row content">
+        {% block content %}{% endblock %}
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+{% block scripts %}{% endblock %}
+
+</body>
+</html>

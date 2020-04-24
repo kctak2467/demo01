@@ -37,7 +37,8 @@
                             </ul>
                             <form method="post">
                                 {% csrf_token %}
-                                <p>機器ID：{{ kiki.kiki_id }}／機器名称：{{ kiki.kiki_name }}を削除しますか？</p>
+                                <p class="text-danger font-weight-bold">
+                                    機器ID：{{ kiki.kiki_id }}／機器名称：{{ kiki.kiki_name }}を削除しますか？</p>
                                 <button type=“submit” class="btn btn-danger" id="button" name="button">
                                     <i class="far fa-trash-alt"></i>　削除
                                 </button>

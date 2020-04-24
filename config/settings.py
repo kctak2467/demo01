@@ -37,11 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hzyhyoka.apps.KikimstConfig',    #追加
-    'bootstrap4',    #追加
-    'widget_tweaks',    #追加
-    'books.apps.BooksConfig',       #追加(books)
-    'kiki.apps.KikiConfig',         #追加(kiki)
+    'hzyhyoka.apps.HzyhyokaConfig',             # 追加
+    'bootstrap4',                               # 追加
+    'widget_tweaks',                            # 追加
+    'books.apps.BooksConfig',                   # 追加(books)
+    'kiki.apps.KikiConfig',                     # 追加(kiki)
+    'excelupload.apps.ExceluploadConfig',       # 追加(excelupload)
+    'exceldownload.apps.ExceldownloadConfig',   # 追加(exceldownload)
+    'csvdownload.apps.CsvdownloadConfig',       # 追加(csvdownload)
 ]
 
 MIDDLEWARE = [

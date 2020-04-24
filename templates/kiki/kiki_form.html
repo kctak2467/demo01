@@ -22,7 +22,8 @@
 
                         <!-- card-body -->
                         <div class="card-body">
-                            <form method="post" novalidate>
+                            <form method="post">
+<!--                            <form method="post" novalidate>-->
                                 {% csrf_token %}
                                 <table class="col-6">
                                     {{ form.as_table }}

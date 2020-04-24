@@ -71,14 +71,14 @@
                                     <label class="col-md-3">{{ test_form.kiki_name.label }}</label>
                                     {{ test_form.kiki_name }}
                                 </div>
-                                <div class="col">
-                                    <p></p>
-                                    <button type="submit" class="btn btn-primary" id="button" name="button">
-                                        <i class="fas fa-search"></i> 検索
-                                    </button>
-                                </div>
+<!--                                <div class="col">-->
+                                    <div class="col-sm" align="right">
+                                        <button type="submit" class="btn btn-primary" id="button" name="button">
+                                            <i class="fas fa-search"></i> 検索
+                                        </button>
+                                    </div>
+<!--                                </div>-->
                             </form>
-
                         </div>
                         <!--
                         <div class="card-footer"></div>
@@ -97,17 +97,25 @@
                             <h3 class="card-title">機器台帳一覧</h3>
                             <div class="card-tools">
                                 <button type=“button” class="btn btn-default btn-sm"
-                                        onclick="location.href='/kiki/create/'"><i class="fas fa-pen"></i> 新規作成
-                                </button>
+                                        onclick="location.href='/kiki/create/'"><i class="fas fa-pen"></i> 新規作成</button>
+                                <button type=“button” class="btn btn-default btn-sm"
+                                        onclick="location.href='/kiki/import/'"><i class="fas fa-file-upload"></i> CSVアップロード</button>
+                                <button type=“button” class="btn btn-default btn-sm"
+                                        onclick="location.href='/kiki/uploadexcel/'"><i class="fas fa-file-upload"></i> EXCELアップロード</button>
                             </div>
                         </div>
                         <!-- card-body -->
                         <div class="card-body">
-
                             <table id="example2" class="table table-bordered table-hover">
                                 {% if kiki_list|length == 0 %}
                                 <p>検索結果が存在しません。</p>
                                 {% else %}
+                                    <p class="col-sm" align="right">
+                                        <button type=“button” class="btn btn-dark btn-sm"
+                                                onclick="location.href='/kiki/export/'"><i class="fas fa-file-download"></i> CSVダウンロード</button>
+                                        <button type=“button” class="btn btn-dark btn-sm"
+                                                onclick="location.href='/kiki/downloadexcel'"><i class="fas fa-file-download"></i> EXCELダウンロード</button>
+                                    </p>
                                 <thead>
                                 <tr>
                                     <th style="width:10%" class="text-center">機器ID</th>

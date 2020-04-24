@@ -18,8 +18,11 @@ from django.urls import include, path    #変更
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('hzyhyoka.urls')),             #追加
-    path('', include('accounts.urls')),             #追加
-    path('books/', include('books.urls')),          #追加(books)
-    path('kiki/', include('kiki.urls')),            # 追加(kiki)
+    path('', include('hzyhyoka.urls')),                     #追加
+    path('', include('accounts.urls')),                     #追加
+    path('books/', include('books.urls')),                  #追加(books)
+    path('kiki/', include('kiki.urls')),                    # 追加(kiki)
+    path('excelupload/', include('excelupload.urls')),      # 追加(excelupload)
+    path('exceldownload/', include('exceldownload.urls')),  # 追加(exceldownload)
+    path('csvdownload/', include('csvdownload.urls')),      # 追加(exceldownload)
 ]
