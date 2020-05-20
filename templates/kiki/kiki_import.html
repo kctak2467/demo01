@@ -20,38 +20,30 @@
                         </div>
                         <!-- card-body -->
                         <div class="card-body">
-
                             <form action="" method="POST" enctype="multipart/form-data">
-                              <p>ファイルを選択ボタンをクリックして、アップロードするCSVファイルを選択します</p>
-                              {% csrf_token %}
-<!--                              {% if form.errors %}-->
-<!--                                    {% for field in form %}-->
-<!--                                        {% for error in field.errors %}-->
-<!--                                            <div class="alert alert-danger">-->
-<!--                                                <strong>{{ error|escape }}</strong>-->
-<!--                                            </div>-->
-<!--                                        {% endfor %}-->
-<!--                                    {% endfor %}-->
-<!--                                    {% for error in form.non_field_errors %}-->
-<!--                                        <div class="alert alert-danger">-->
-<!--                                            <strong>{{ error|escape }}</strong>-->
-<!--                                        </div>-->
-<!--                                    {% endfor %}-->
-<!--                               {% endif %}-->
-
-                              <div class="form-group">
-                                {{form.file}}
-<!--                                {{form.as_p}}-->
-<!--                                {{form.as_table}}-->
-                              </div>
-                              <br/>
-                                 <button type=“submit” class="btn btn-dark" id="button" name="button">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    {{ form.non_field_errors }}
+                                    <p>{{form.file.help_text}}</p>
+                                    <div class="field">
+                                        <div>{{form.file.label_tag}}</div>
+                                        <div>{{form.file}}</div>
+                                        <p></p>
+                                        {% if form.errors %}
+                                            <div class="alert alert-danger">
+                                                {{form.file.errors}}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <br/>
+                                <button type=“submit” class="btn btn-dark btn-lg" id="button" name="button">
                                     <i class="fas fa-file-upload"></i>　アップロード
                                 </button>
                             </form>
                         </div>
                         <div class="card-footer">
-                            <button type=“button” class="btn btn-secondary"
+                            <button type=“button” class="btn btn-secondary float-right"
                                     onclick="location.href='/kiki/'"><i class="fas fa-list"></i>　戻る</button>
                         </div>
                    </div>

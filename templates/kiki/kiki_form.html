@@ -19,37 +19,41 @@
                         <div class="card-header">
                             <h3 class="card-title">機器台帳（登録）</h3>
                         </div>
-
                         <!-- card-body -->
                         <div class="card-body">
-                            <form method="post">
-<!--                            <form method="post" novalidate>-->
+                            <form method="post" novalidate>
                                 {% csrf_token %}
-                                <table class="col-6">
-                                    {{ form.as_table }}
+                                {{ form.non_field_errors }}
+                                <table class="table">
+                                    <tr>
+                                        <th style="width:20%">項目名</th>
+                                        <th style="width:30%">入力値</th>
+                                        <th style="width:50s%">メッセージ</th>
+                                    </tr>
+                                    {% for field in form %}
+                                        {% if field.errors %}
+                                            <tr class="table-danger">
+                                        {% else %}
+                                            <tr>
+                                        {% endif %}
+                                            <td class="align-middle">{{ field.label }} </td>
+                                            <td class="align-middle">{{ field }}</td>
+                                                {% if field.errors %}
+                                                    <td class="align-middle">{{ field.errors }}</td>
+                                                {% else %}
+                                                    <td class="align-middle"></td>
+                                                {% endif %}
+                                        </tr>
+                                    {% endfor %}
                                 </table>
-
-<!--                                <div class="col">-->
-<!--                                    <label class="col-md-3">{{ form.kiki_id.label }}</label>{{ form.kiki_id }}{{ form.kiki_id.erros }}</div>-->
-<!--                                <div class="col">-->
-<!--                                    <label class="col-md-3">{{ form.kiki_name.label }}</label>{{ form.kiki_name }}</div>-->
-<!--                                <div class="col">-->
-<!--                                    <label class="col-md-3">{{ form.keito.label }}</label>{{ form.keito }}</div>-->
-<!--                                <div class="col">-->
-<!--                                    <label class="col-md-3">{{ form.settibasho.label }}</label>{{ form.settibasho }}</div>-->
-<!--                                <div class="col">-->
-<!--                                    <label class="col-md-3">{{ form.juyodo.label }}</label>{{ form.juyodo }}</div>-->
-<!--                                <div class="col">-->
-<!--                                    <label class="col-md-3">{{ form.nensu.label }}</label>{{ form.nensu }}</div>-->
-<!--                                <p></p>-->
-                                <button type=“submit” class="btn btn-info" id="button" name="button">
+                                <button type=“submit” class="btn btn-info btn-lg" id="button" name="button">
                                     <i class="fas fa-save"></i>　登録
                                 </button>
                             </form>
                         </div>
 
                         <div class="card-footer">
-                            <button type=“button” class="btn btn-secondary"
+                            <button type=“button” class="btn btn-secondary float-right"
                                     onclick="location.href='/kiki/'"><i class="fas fa-list"></i>　戻る</button>
                         </div>
                    </div>

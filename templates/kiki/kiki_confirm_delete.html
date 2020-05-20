@@ -25,7 +25,7 @@
                               <li class="list-group-item">
                                   <label class="col-md-3">機器ID</label>{{ kiki.kiki_id }}</li>
                               <li class="list-group-item">
-                                  <label class="col-md-3">機器番号</label>{{ kiki.kiki_name }}</li>
+                                  <label class="col-md-3">機器名称</label>{{ kiki.kiki_name }}</li>
                               <li class="list-group-item">
                                   <label class="col-md-3">系統</label>{{ kiki.keito }}</li>
                               <li class="list-group-item">
@@ -39,13 +39,13 @@
                                 {% csrf_token %}
                                 <p class="text-danger font-weight-bold">
                                     機器ID：{{ kiki.kiki_id }}／機器名称：{{ kiki.kiki_name }}を削除しますか？</p>
-                                <button type=“submit” class="btn btn-danger" id="button" name="button">
+                                <button type=“submit” class="btn btn-danger btn-lg" id="button" name="button">
                                     <i class="far fa-trash-alt"></i>　削除
                                 </button>
                             </form>
                         </div>
                         <div class="card-footer">
-                            <button type=“button” class="btn btn-secondary"
+                            <button type=“button” class="btn btn-secondary float-right"
                                 onclick="location.href='/kiki/'"><i class="fas fa-list"></i>　戻る</button>
                         </div>
                     </div>
@@ -55,29 +55,3 @@
     </section>
 </div>
 {% endblock content %}
-<!--
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8" />
-    <title>DeleteViewサンプル</title>
-</head>
-
-<body>
--->
-<!--    <h1>DeleteView削除確認画面</h1>-->
-<!--    <form method="post">-->
-<!--        {% csrf_token %}-->
-<!--        <p>{{ kiki.kiki_id }}/{{ kiki.kiki_name }}を削除しますか？</p>-->
-<!--        <input type="submit" value="削除する">-->
-<!--    </form>-->
-<!--    <div>-->
-<!--        <button onclick="location.href='/kiki/'">Return</button>-->
-<!--    </div>-->
-
-<!--
-</body>
-
-</html>
--->

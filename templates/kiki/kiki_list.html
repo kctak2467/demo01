@@ -1,40 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<!--
 <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8" />
-
-    <script type="text/javascript">
-        $(function() {
-            var topBtn = $('#page-top');
-            topBtn.hide();
-            //スクロールが500に達したらボタン表示
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > 500) {
-                    topBtn.fadeIn();
-                } else {
-                    topBtn.fadeOut();
-                }
-            });
-            //スクロールしてトップ
-            topBtn.click(function () {
-                $('body,html').animate({
-                    scrollTop: 0
-                }, 500);
-                return false;
-            });
-        });
-    </script>
-
-    <title>ListViewサンプル</title>
-</head>
-
-<body>
-
--->
 
 <div class="content-wrapper">
 
@@ -71,13 +37,11 @@
                                     <label class="col-md-3">{{ test_form.kiki_name.label }}</label>
                                     {{ test_form.kiki_name }}
                                 </div>
-<!--                                <div class="col">-->
-                                    <div class="col-sm" align="right">
-                                        <button type="submit" class="btn btn-primary" id="button" name="button">
-                                            <i class="fas fa-search"></i> 検索
-                                        </button>
-                                    </div>
-<!--                                </div>-->
+                                <div class="col-sm" align="right">
+                                    <button type="submit" class="btn btn-primary" id="button" name="button">
+                                        <i class="fas fa-search"></i> 検索
+                                    </button>
+                                </div>
                             </form>
                         </div>
                         <!--
@@ -118,12 +82,12 @@
                                     </p>
                                 <thead>
                                 <tr>
-                                    <th style="width:10%" class="text-center">機器ID</th>
-                                    <th style="width:17%" class="text-center">機器名称</th>
-                                    <th style="width:15%" class="text-center">系統</th>
+                                    <th style="width:12%" class="text-center">機器ID</th>
+                                    <th style="width:14%" class="text-center">機器名称</th>
+                                    <th style="width:12%" class="text-center">系統</th>
                                     <th style="width:15%" class="text-center">設置場所</th>
-                                    <th style="width:10%" class="text-center">重要度</th>
-                                    <th style="width:10%" class="text-center">耐用年</th>
+                                    <th style="width:12%" class="text-center">重要度</th>
+                                    <th style="width:12%" class="text-center">耐用年</th>
                                     <th style="width:23%" class="text-center">詳細/編集/削除</th>
                                 </tr>
                                 </thead>
@@ -146,14 +110,6 @@
                                 </tbody>
                                 {% endif %}
                             </table>
-
-                        </div>
-                        <!-- card-footer -->
-                        <div class="card-footer">
-                            <!-- ページネーション -->
-                            {% if is_paginated %}
-                            {% include 'pagination.html' %}
-                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -162,9 +118,4 @@
     </section>
 </div>
 
-<!--
-</body>
-
-</html>
--->
 {% endblock content %}

@@ -10,5 +10,5 @@ urlpatterns = [
     path('import/', views.KikiImport.as_view(), name='import'),
     path('export/', views.KikiExport, name='export'),
     path('downloadexcel/', views.KikiDownloadExcel, name='downloadexcel'),
-    path('uploadexcel/', views.KikiUploadExcel, name='uploadexcelxx'),
+    path('uploadexcel/', views.KikiUploadExcel.as_view(), name='uploadexcel'),
 ]

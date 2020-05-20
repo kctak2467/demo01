@@ -20,26 +20,31 @@
                         </div>
                         <!-- card-body -->
                         <div class="card-body">
-
                             <form action="" method="POST" enctype="multipart/form-data">
-                              <p>ファイルを選択ボタンをクリックして、アップロードするEXCELファイルを選択します</p>
-                              {% csrf_token %}
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    {{ form.non_field_errors }}
+                                    <p>{{form.file.help_text}}</p>
 
-                              <div class="form-group">
-<!--                                {{form}}-->
-                                <input type="file"
-                                       title="Upload excel file"
-                                       name="excel_file"
-                                       required="required">
-                              </div>
-                              <br/>
-                                 <button type=“submit” class="btn btn-dark" id="button" name="button">
+                                    <div class="field">
+                                        <div>{{form.file.label_tag}}</div>
+                                        <div>{{form.file}}</div>
+                                        <p></p>
+                                        {% if form.errors %}
+                                            <div class="alert alert-danger">
+                                                {{form.file.errors}}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <br/>
+                                 <button type=“submit” class="btn btn-dark btn-lg" id="button" name="button">
                                     <i class="fas fa-file-upload"></i>　アップロード
                                 </button>
                             </form>
                         </div>
                         <div class="card-footer">
-                            <button type=“button” class="btn btn-secondary"
+                            <button type=“button” class="btn btn-secondary float-right"
                                     onclick="location.href='/kiki/'"><i class="fas fa-list"></i>　戻る</button>
                         </div>
                    </div>
